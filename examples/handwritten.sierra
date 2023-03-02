@@ -1,0 +1,10 @@
+type felt = felt;
+
+libfunc felt_const_str = felt_const<156959545405143397233706620795769378256937460590437>;
+libfunc store_temp_felt = store_temp<felt>;
+
+felt_const_str() -> (my_str);
+store_temp_felt(my_str) -> (result);
+return(result);
+
+main::main@0() -> (felt);
