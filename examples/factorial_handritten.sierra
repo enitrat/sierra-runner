@@ -1,0 +1,44 @@
+type felt = felt;
+type NonZeroFelt = NonZero<felt>;
+
+libfunc disable_ap_tracking = disable_ap_tracking;
+libfunc store_temp_felt = store_temp<felt>;
+libfunc branch_align = branch_align;
+libfunc felt_const_24 = felt_const<24>;
+libfunc felt_const_1 = felt_const<1>;
+libfunc felt_sub = felt_sub;
+libfunc felt_mul = felt_mul;
+libfunc felt_is_zero = felt_is_zero;
+libfunc dup_felt = dup<felt>;
+libfunc drop_felt = drop<felt>;
+libfunc drop_NonZeroFelt = drop<NonZeroFelt>;
+libfunc multiply_rec_call = function_call<user@factorial::multiply_rec>;
+libfunc rename_felt = rename<felt>;
+
+disable_ap_tracking() -> ();
+felt_const_24() -> (n); 
+store_temp_felt(n) -> (n_stack);
+multiply_rec_call(n_stack) -> (result);
+rename_felt(result) -> (final);
+return(final);
+disable_ap_tracking() -> ();
+dup_felt(n) -> (n, n_);
+felt_is_zero(n_) { fallthrough() 14(n_not_zero) };
+branch_align() -> ();
+drop_felt(n)->();
+felt_const_1() -> (one);
+store_temp_felt(one) -> (one_stack);
+return(one_stack);
+branch_align() -> ();
+drop_NonZeroFelt(n_not_zero) -> ();
+felt_const_1() -> (one);
+dup_felt(n) -> (n,n_);
+felt_sub(n_,one) -> (n_minus_one);
+store_temp_felt(n_minus_one) -> (n_minus_one_stack);
+multiply_rec_call(n_minus_one_stack) -> (call_result);
+felt_mul(n,call_result) -> (intermediate_result);
+store_temp_felt(intermediate_result) -> (intermediate_result_stack);
+return(intermediate_result_stack);
+
+factorial::main@0()->(felt);
+factorial::multiply_rec@6(n:felt)->(felt);

@@ -1,0 +1,32 @@
+type [0] = felt;
+type [1] = NonZero<[0]>;
+
+libfunc [2] = felt_const<1>;
+libfunc [8] = store_temp<[0]>;
+libfunc [1] = felt_sub;
+libfunc [0] = felt_is_zero;
+libfunc [3] = branch_align;
+libfunc [4] = felt_const<123>;
+libfunc [5] = jump;
+libfunc [6] = drop<[1]>;
+libfunc [7] = felt_const<456>;
+libfunc [9] = rename<[0]>;
+
+[2]() -> ([0]);
+[2]() -> ([1]);
+[8]([0]) -> ([0]);
+[1]([0], [1]) -> ([2]);
+[8]([2]) -> ([2]);
+[0]([2]) { fallthrough() 10([3]) };
+[3]() -> ();
+[4]() -> ([4]);
+[8]([4]) -> ([5]);
+[5]() { 14() };
+[3]() -> ();
+[6]([3]) -> ();
+[7]() -> ([6]);
+[8]([6]) -> ([5]);
+[9]([5]) -> ([7]);
+return([7]);
+
+[0]@0() -> ([0]);

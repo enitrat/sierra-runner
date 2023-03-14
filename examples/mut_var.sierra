@@ -1,0 +1,24 @@
+type felt = felt;
+type Unit = Struct<ut@Tuple>;
+
+libfunc felt_const<3> = felt_const<3>;
+libfunc drop<felt> = drop<felt>;
+libfunc felt_const<5> = felt_const<5>;
+libfunc felt_const<30> = felt_const<30>;
+libfunc felt_const<50> = felt_const<50>;
+libfunc struct_construct<Unit> = struct_construct<Unit>;
+libfunc store_temp<Unit> = store_temp<Unit>;
+
+felt_const<3>() -> ([0]);
+drop<felt>([0]) -> ();
+felt_const<5>() -> ([1]);
+drop<felt>([1]) -> ();
+felt_const<30>() -> ([2]);
+drop<felt>([2]) -> ();
+felt_const<50>() -> ([3]);
+drop<felt>([3]) -> ();
+struct_construct<Unit>() -> ([4]);
+store_temp<Unit>([4]) -> ([5]);
+return([5]);
+
+mut_var::mut_var::main@0() -> (Unit);

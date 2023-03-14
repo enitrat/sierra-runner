@@ -1,0 +1,22 @@
+type felt = felt;
+
+libfunc felt_const<5> = felt_const<24>;
+libfunc snapshot_take<felt> = dup<felt>;
+libfunc drop<felt> = drop<felt>;
+libfunc store_temp<felt> = store_temp<felt>;
+libfunc function_call<user@snapshots::snapshots::pass_by_snapshot> = function_call<user@snapshots::snapshots::pass_by_snapshot>;
+libfunc rename<felt> = rename<felt>;
+
+felt_const<5>() -> ([0]);
+snapshot_take<felt>([0]) -> ([1], [2]);
+drop<felt>([1]) -> ();
+store_temp<felt>([2]) -> ([4]);
+function_call<user@snapshots::snapshots::pass_by_snapshot>([4]) -> ([3]);
+rename<felt>([3]) -> ([5]);
+return([5]);
+rename<felt>([0]) -> ([1]);
+store_temp<felt>([1]) -> ([2]);
+return([2]);
+
+snapshots::snapshots::main@0() -> (felt);
+snapshots::snapshots::pass_by_snapshot@7([0]: felt) -> (felt);

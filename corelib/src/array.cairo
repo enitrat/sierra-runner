@@ -59,8 +59,6 @@ impl ArrayFeltDrop of Drop::<Array::<felt>>;
 impl ArrayU8Drop of Drop::<Array::<u8>>;
 impl ArrayU32Drop of Drop::<Array::<u32>>;
 impl ArrayU64Drop of Drop::<Array::<u64>>;
-impl ArrayU128Drop of Drop::<Array::<u128>>;
-impl ArrayU256Drop of Drop::<Array::<u256>>;
 
 
 // Span.

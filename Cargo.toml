@@ -17,16 +17,16 @@ num-bigint = "0.4"
 num-traits = "0.2"
 salsa = "0.16.1"
 thiserror = "1.0.32"
-cairo-lang-compiler = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-casm = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-diagnostics = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-runner = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-sierra = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-sierra-ap-change = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-sierra-gas = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-sierra-generator = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-sierra-to-casm = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
-cairo-lang-utils = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.3" }
+cairo-lang-compiler = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-casm = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-diagnostics = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-runner = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-sierra = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-sierra-ap-change = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-sierra-gas = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-sierra-generator = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-sierra-to-casm = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
+cairo-lang-utils = { git = "https://github.com/starkware-libs/cairo", version = "1.0.0-alpha.4" }
 
 [[bin]]
 name = "sierra-run"

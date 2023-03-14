@@ -1,0 +1,33 @@
+type felt = felt;
+type Tuple<felt, felt, felt> = Struct<ut@Tuple, felt, felt, felt>;
+type tuples::tuples::MyStruct = Struct<ut@tuples::tuples::MyStruct>;
+type Unit = Struct<ut@Tuple>;
+type tuples::tuples::MyEnum = Enum<ut@tuples::tuples::MyEnum, Unit>;
+
+libfunc felt_const<1> = felt_const<1>;
+libfunc felt_const<2> = felt_const<2>;
+libfunc felt_const<3> = felt_const<3>;
+libfunc struct_construct<Tuple<felt, felt, felt>> = struct_construct<Tuple<felt, felt, felt>>;
+libfunc drop<Tuple<felt, felt, felt>> = drop<Tuple<felt, felt, felt>>;
+libfunc struct_construct<tuples::tuples::MyStruct> = struct_construct<tuples::tuples::MyStruct>;
+libfunc drop<tuples::tuples::MyStruct> = drop<tuples::tuples::MyStruct>;
+libfunc struct_construct<Unit> = struct_construct<Unit>;
+libfunc enum_init<tuples::tuples::MyEnum, 0> = enum_init<tuples::tuples::MyEnum, 0>;
+libfunc drop<tuples::tuples::MyEnum> = drop<tuples::tuples::MyEnum>;
+libfunc store_temp<Unit> = store_temp<Unit>;
+
+felt_const<1>() -> ([0]);
+felt_const<2>() -> ([1]);
+felt_const<3>() -> ([2]);
+struct_construct<Tuple<felt, felt, felt>>([0], [1], [2]) -> ([3]);
+drop<Tuple<felt, felt, felt>>([3]) -> ();
+struct_construct<tuples::tuples::MyStruct>() -> ([4]);
+drop<tuples::tuples::MyStruct>([4]) -> ();
+struct_construct<Unit>() -> ([5]);
+enum_init<tuples::tuples::MyEnum, 0>([5]) -> ([6]);
+drop<tuples::tuples::MyEnum>([6]) -> ();
+struct_construct<Unit>() -> ([7]);
+store_temp<Unit>([7]) -> ([8]);
+return([8]);
+
+tuples::tuples::main@0() -> (Unit);

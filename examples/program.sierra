@@ -1,0 +1,10 @@
+type felt = felt;
+
+libfunc felt_const<1> = felt_const<1>;
+libfunc store_temp<felt> = store_temp<felt>;
+
+felt_const<1>() -> ([0]);
+store_temp<felt>([0]) -> ([1]);
+return([1]);
+
+program::program::main@0() -> (felt);

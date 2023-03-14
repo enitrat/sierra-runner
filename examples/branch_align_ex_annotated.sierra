@@ -1,0 +1,33 @@
+type felt = felt;
+type NonZeroFelt = NonZero<felt>;
+
+libfunc felt_const_one = felt_const<1>;
+libfunc store_temp_felt = store_temp<felt>;
+libfunc felt_sub = felt_sub;
+libfunc felt_is_zero = felt_is_zero;
+libfunc branch_align = branch_align;
+libfunc felt_const_123 = felt_const<123>;
+libfunc jump = jump;
+libfunc dropNonZeroFelt = drop<NonZeroFelt>;
+libfunc felt_const_456 = felt_const<456>;
+libfunc rename_felt = rename<felt>;
+
+felt_const_one() -> (felt_one);
+felt_const_one() -> (felt_one_);
+store_temp_felt(felt_one) -> (felt_one);
+felt_sub(felt_one, felt_one_) -> (sub_result);
+store_temp_felt(sub_result) -> (sub_result);
+felt_is_zero(sub_result) { fallthrough() 10(sub_result) };
+
+branch_align() -> ();
+felt_const_123() -> (felt_123);
+store_temp_felt(felt_123) -> (returned_var);
+jump() { 14() };
+
+branch_align() -> ();
+dropNonZeroFelt(sub_result) -> ();
+felt_const_456() -> (felt_456);
+store_temp_felt(felt_456) -> (returned_var);
+return(returned_var);
+
+main::main@0() -> (felt);

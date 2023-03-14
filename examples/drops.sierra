@@ -1,0 +1,16 @@
+type u128 = u128;
+type Array<u128> = Array<u128>;
+type Unit = Struct<ut@Tuple>;
+
+libfunc array_new<u128> = array_new<u128>;
+libfunc drop<Array<u128>> = drop<Array<u128>>;
+libfunc struct_construct<Unit> = struct_construct<Unit>;
+libfunc store_temp<Unit> = store_temp<Unit>;
+
+array_new<u128>() -> ([0]);
+drop<Array<u128>>([0]) -> ();
+struct_construct<Unit>() -> ([1]);
+store_temp<Unit>([1]) -> ([2]);
+return([2]);
+
+drops::drops::main@0() -> (Unit);
